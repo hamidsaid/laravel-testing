@@ -21,4 +21,8 @@ Route::get('/about', function(){
     return "Hello, My name is Hamid";
 });
 
+Route::get('/posts/{id}/{name}' , function($id,$post_name){
+    return "The post number". $id ." is called ". $post_name;
+});
+
 
