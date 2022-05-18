@@ -20,3 +20,6 @@ Route::get('/', function () {
 //ROUTING CONTROLLERS
 Route::get('/post', 'App\Http\Controllers\PostsController@index');
 
+//contact controller route
+Route::get("/contact", "App\Http\Controllers\PostsController@myFirstView");
+
