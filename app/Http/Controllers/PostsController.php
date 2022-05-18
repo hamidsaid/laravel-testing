@@ -85,6 +85,7 @@ class PostsController extends Controller
 
     //You can also create a custoom view method
     public function myFirstView(){
-        return view("0653448900");
+        //specify the .blade file which has the html code for the view
+        return view("contact");
     }
 }
