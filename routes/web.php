@@ -21,5 +21,5 @@ Route::get('/', function () {
 Route::get('/post', 'App\Http\Controllers\PostsController@index');
 
 //contact controller route
-Route::get("/contact/{mtandao}", "App\Http\Controllers\PostsController@myFirstView");
+Route::get("/contact/{mtandao}/{name}", "App\Http\Controllers\PostsController@myFirstView");
 

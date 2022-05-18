@@ -15,6 +15,8 @@
 <body>
     <h1>My Contacts</h1>
     <p>0653448900</p>
-    <h3>{{ $network }}</h3>
+    <h3>{{ $mtandao }}</h3>
+    <h3>USER: {{ $name }}</h3>
+    <p> {{ $mtandao }} {{ $name }}</p>
 </body>
 </html>

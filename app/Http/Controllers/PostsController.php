@@ -84,9 +84,11 @@ class PostsController extends Controller
     }
 
     //You can also create a custoom view method
-    public function myFirstView($mtandao){
+    public function myFirstView($mtandao,$name){
         //specify the .blade file which has the html code for the view 
-        //with method renders a view with certain passed parameters from route
-        return view("contact") -> with("network", "$mtandao");
+        //with method renders a view with certain passed parameter from route
+        //passing multiple parameters , use compact
+        // return view("contact") -> with("network", "$mtandao");
+        return view('contact', compact('mtandao','name'));
     }
 }
