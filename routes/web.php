@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+//ROUTING CONTROLLERS
 Route::get('/post', 'App\Http\Controllers\PostsController@index');
 

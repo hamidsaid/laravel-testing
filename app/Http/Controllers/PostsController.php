@@ -82,4 +82,9 @@ class PostsController extends Controller
     {
         //
     }
+
+    //You can also create a custoom view method
+    public function myFirstView(){
+        return view("0653448900");
+    }
 }
