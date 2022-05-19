@@ -91,4 +91,8 @@ class PostsController extends Controller
         // return view("contact") -> with("network", "$mtandao");
         return view('contact', compact('mtandao','name'));
     }
+
+    public function about(){
+        return view('post');
+    }
 }

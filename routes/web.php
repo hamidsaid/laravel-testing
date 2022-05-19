@@ -18,8 +18,9 @@ Route::get('/', function () {
 });
 
 //ROUTING CONTROLLERS
-Route::get('/post', 'App\Http\Controllers\PostsController@index');
+//Route::get('/post', 'App\Http\Controllers\PostsController@index');
 
-//contact controller route
+//contact controller route with multiple parameters
 Route::get("/contact/{mtandao}/{name}", "App\Http\Controllers\PostsController@myFirstView");
 
+Route::get('/post', 'App\Http\Controllers\PostsController@about');
