@@ -23,4 +23,4 @@ Route::get('/', function () {
 //contact controller route with multiple parameters
 Route::get("/contact/{mtandao}/{name}", "App\Http\Controllers\PostsController@myFirstView");
 
-Route::get('/post', 'App\Http\Controllers\PostsController@about');
+Route::get('/post', 'App\Http\Controllers\PostsController@posts');

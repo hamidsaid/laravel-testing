@@ -2,6 +2,6 @@
 
 @section('contentSection')
 
-<h1>This is the passed content</h1>
+<h1>This is the passed content, yeye</h1>
 
 @endsection

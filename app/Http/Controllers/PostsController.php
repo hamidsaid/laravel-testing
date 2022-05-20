@@ -92,7 +92,7 @@ class PostsController extends Controller
         return view('contact', compact('mtandao','name'));
     }
 
-    public function about(){
+    public function posts(){
         return view('post');
     }
 }
