@@ -93,6 +93,8 @@ class PostsController extends Controller
     }
 
     public function posts(){
-        return view('post');
+        $people = ['hamid','said','pavillion'];
+
+        return view('post', compact('people'));
     }
 }
