@@ -68,3 +68,12 @@ Route::get('/eloquentRead', function(){
         echo $post->title . ' ';
     }
 });
+
+Route::get('/where', function(){
+   //-> chaining methods
+   $post = Post::where('id',3)->orderBy('id','desc')->take(1)->get();
+
+   foreach($post as $post){
+    echo $post->title . ' ';
+}
+});
