@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,17 @@ Route::get('/', function () {
 Route::get("/contact/{mtandao}/{name}", "App\Http\Controllers\PostsController@myFirstView");
 
 Route::get('/post', 'App\Http\Controllers\PostsController@posts');
+
+Route::get('/insert', function(){
+
+    DB::insert("insert into posts (title,content) values (?,?)", 
+    ['Best php frameworks','Laravel is the best php framework']);
+});
+
+Route::get('/read', function(){
+    $posts = DB::select("select * from posts");
+
+    foreach($posts as $post){
+        echo $post->title;
+    }
+});
