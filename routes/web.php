@@ -39,3 +39,7 @@ Route::get('/read', function(){
         echo $post->title;
     }
 });
+
+Route::get('/update', function(){
+    DB::update('update posts set content = ? where id = ?', ['Post consistently', 2]);
+});
