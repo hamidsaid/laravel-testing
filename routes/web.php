@@ -29,7 +29,7 @@ Route::get('/post', 'App\Http\Controllers\PostsController@posts');
 Route::get('/insert', function(){
 
     DB::insert("insert into posts (title,content) values (?,?)", 
-    ['Best php frameworks','Laravel is the best php framework']);
+    ['twitter tips','Post consistent']);
 });
 
 Route::get('/read', function(){
