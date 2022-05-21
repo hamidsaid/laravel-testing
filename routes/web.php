@@ -43,3 +43,7 @@ Route::get('/read', function(){
 Route::get('/update', function(){
     DB::update('update posts set content = ? where id = ?', ['Post consistently', 2]);
 });
+
+Route::get('/delete', function(){
+    DB::update('delete from posts where id=?', [2]);
+});
