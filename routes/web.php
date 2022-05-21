@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,7 @@ Route::get('/post', 'App\Http\Controllers\PostsController@posts');
 Route::get('/insert', function(){
 
     DB::insert("insert into posts (title,content) values (?,?)", 
-    ['twitter tips','Post consistent']);
+    ['PUBG','Current favorite game']);
 });
 
 Route::get('/read', function(){
@@ -41,9 +42,29 @@ Route::get('/read', function(){
 });
 
 Route::get('/update', function(){
-    DB::update('update posts set content = ? where id = ?', ['Post consistently', 2]);
+    DB::update('update posts set content = ? where id = ?', ['Post consistently', 3 ]);
 });
 
 Route::get('/delete', function(){
     DB::update('delete from posts where id=?', [2]);
+});
+
+/*
+|--------------------------------------------------------------------------
+| ELOQUENT ORM
+|--------------------------------------------------------------------------
+| 
+*/
+
+Route::get('/eloquentRead', function(){
+    //returns all collection in the Post Model
+    $posts = Post::all();
+
+    //returns a specific Record
+    $post = Post::find(1);
+
+
+    foreach($posts as $post){
+        echo $post->title . ' ';
+    }
 });
