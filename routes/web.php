@@ -110,3 +110,10 @@ Route::get('/user/{id}/post', function($id){
     //return the post of user number $id
     return User::find($id)->post;
 });
+
+//Inverse one to one relationship
+Route::get('/post/{id}/user', function($id){
+
+    //return the user of the post number $id
+    return Post::find($id)->user->namespace;
+});

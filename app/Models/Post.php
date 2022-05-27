@@ -12,6 +12,6 @@ class Post extends Model
     //one to one inverse relationship
     //second parameter is optional if the default is used
     public function user(){
-        return $this->belongsTo("App\Models\User", 'user_id');
+        return $this->belongsTo("App\Models\User");
     }
 }
