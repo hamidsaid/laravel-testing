@@ -71,9 +71,26 @@ Route::get('/eloquentRead', function(){
 
 Route::get('/where', function(){
    //-> chaining methods
+   //retrieving data by orm
    $post = Post::where('id',3)->orderBy('id','desc')->take(1)->get();
 
    foreach($post as $post){
     echo $post->title . ' ';
 }
 });
+
+Route::get('/eloquentInsert', function(){
+    
+    //first create an instance of the Post class
+    $post = new Post();
+    $post->title = 'Java Inheritance';
+    $post->content = 'Inheritance is an OOP concept that allows one class to reuse the
+    and attributes of another class';
+
+    //you can also update using this 
+        // $post = Post::find(5);
+        // $post->title = "Inheritance";
+        
+    $post->save();
+
+ });
