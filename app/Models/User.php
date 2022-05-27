@@ -48,4 +48,11 @@ class User extends Authenticatable
         //second parameter is optional if the default is used
         return $this->hasOne('App\Models\Post', 'user_id');
     }
+
+     //many to many relationship
+     public function posts(){
+        //second parameter is the name of the foreign key(i.e of the user) in posts table
+        //second parameter is optional if the default is used
+        return $this->hasMany('App\Models\Post', 'user_id');
+    }
 }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\Role;
 use App\Models\User;
 
 /*
@@ -97,6 +98,13 @@ Route::get('/eloquentInsert', function(){
 
  });
 
+ Route::get('/insertRoles', function(){
+
+    $role = new Role();
+    $role->name = "subscriber";
+    $role->save();
+ });
+
  /*
 |--------------------------------------------------------------------------
 | ELOQUENT RELATIONSHIPS
@@ -115,5 +123,18 @@ Route::get('/user/{id}/post', function($id){
 Route::get('/post/{id}/user', function($id){
 
     //return the user of the post number $id
-    return Post::find($id)->user->namespace;
+    //user is the name in the Post model, can be named anything
+    return Post::find($id)->user->name;
+});
+
+//many to many
+Route::get('/posts/{id}' , function($id){
+
+    //return all the posts of user with id $id
+    //posts is the method in User model 
+    $posts = User::find($id)->posts;
+
+    foreach($posts as $post){
+        echo $post->content ;
+    }
 });
