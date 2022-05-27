@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //one to one relationship
+    public function post(){
+        //second parameter is the name of the foreign key in posts table
+        return $this->hasOne('App\Post', 'user_id');
+    }
 }

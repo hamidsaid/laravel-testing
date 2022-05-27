@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Post;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,8 +30,8 @@ Route::get('/post', 'App\Http\Controllers\PostsController@posts');
 
 Route::get('/insert', function(){
 
-    DB::insert("insert into posts (title,content) values (?,?)", 
-    ['PUBG','Current favorite game']);
+    DB::insert("insert into posts (user_id,title,content) values (?,?,?)", 
+    [2,'PUBG','Current favorite game']);
 });
 
 Route::get('/read', function(){
@@ -83,6 +84,7 @@ Route::get('/eloquentInsert', function(){
     
     //first create an instance of the Post class
     $post = new Post();
+    $post->user_id = 2;
     $post->title = 'Java Inheritance';
     $post->content = 'Inheritance is an OOP concept that allows one class to reuse the
     and attributes of another class';
@@ -90,7 +92,19 @@ Route::get('/eloquentInsert', function(){
     //you can also update using this 
         // $post = Post::find(5);
         // $post->title = "Inheritance";
-        
+
     $post->save();
 
  });
+
+ /*
+|--------------------------------------------------------------------------
+| ELOQUENT RELATIONSHIPS
+|--------------------------------------------------------------------------
+| 
+*/
+
+Route::get('/user/{id}/post', function($id){
+
+    return User::find($id)->post;
+});
