@@ -104,7 +104,9 @@ Route::get('/eloquentInsert', function(){
 | 
 */
 
+//one to one relationship
 Route::get('/user/{id}/post', function($id){
 
+    //return the post of user number $id
     return User::find($id)->post;
 });

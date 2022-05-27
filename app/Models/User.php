@@ -44,7 +44,8 @@ class User extends Authenticatable
 
     //one to one relationship
     public function post(){
-        //second parameter is the name of the foreign key in posts table
-        return $this->hasOne('App\Post', 'user_id');
+        //second parameter is the name of the foreign key(i.e of the user) in posts table
+        //second parameter is optional if the default is used
+        return $this->hasOne('App\Models\Post', 'user_id');
     }
 }
