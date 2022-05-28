@@ -55,4 +55,14 @@ class User extends Authenticatable
         //second parameter is optional if the default is used
         return $this->hasMany('App\Models\Post', 'user_id');
     }
+
+    public function roles(){
+        return $this->belongsToMany('App\Models\Role');
+        //If you were not using the convetional laravel naming of the pivot table
+        //e.g role_user. You have to pass in extra parameters specifying the table
+        //name and he foreign keys
+       // return $this->belongsToMany('App\Models\Role', 'user_roles', 'user_id' , 'role_id');
+
+
+    }
 }

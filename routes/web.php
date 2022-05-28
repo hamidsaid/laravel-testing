@@ -138,3 +138,8 @@ Route::get('/posts/{id}' , function($id){
         echo $post->content ;
     }
 });
+
+Route::get('/user/{id}/role', function($id){
+
+    return User::find($id)->roles;
+});
