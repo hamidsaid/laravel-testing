@@ -57,7 +57,7 @@ class User extends Authenticatable
     }
 
     public function roles(){
-        return $this->belongsToMany('App\Models\Role');
+        return $this->belongsToMany('App\Models\Role')->withPivot('created_at');
         //If you were not using the convetional laravel naming of the pivot table
         //e.g role_user. You have to pass in extra parameters specifying the table
         //name and he foreign keys
