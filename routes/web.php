@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
+use App\Models\Country;
 
 /*
 |--------------------------------------------------------------------------
@@ -162,5 +163,11 @@ Route::get("/user/pivot",function(){
 //Has many through relationship
 Route::get("/user/country",function(){
  
+    $country = Country::find(1);
+    //posts is the method in Country model relating the two tables via country table.
+    foreach($country->posts as $post){
+        return $post->title;
+    }
+    
 
 });
