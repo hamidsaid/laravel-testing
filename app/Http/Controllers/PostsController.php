@@ -11,11 +11,12 @@ class PostsController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
+     */ 
     public function index()
     {
-        //
-        return "Hello world";
+        
+         $posts = Post::all(); //from db
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -41,10 +42,9 @@ class PostsController extends Controller
        //returns submitted form data return $request->all();
 
        //persist data to database i.e send the submited data to the db
-      // Post::create($request->all());
-       $input = $request->all();
-       $input['title'] = $request->title;
        Post::create($request->all());
+      //after submitting
+      return redirect('/posts');
     }
 
     /**
@@ -55,7 +55,9 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        //
+        //find the post with id $id
+        $post = Post::findOrFail($id);
+        return view('posts.show', compact('post'));
     }
 
     /**
@@ -67,6 +69,9 @@ class PostsController extends Controller
     public function edit($id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -79,6 +84,9 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::findOrFail($id);
+        $post->update($request->all());
+        return redirect('/posts');
     }
 
     /**
@@ -101,9 +109,9 @@ class PostsController extends Controller
         return view('contact', compact('mtandao','name'));
     }
 
-    // public function posts(){
-    //     $people = ['hamid','said','pavillion'];
+    public function posts(){
+        $people = ['hamid','said','pavillion'];
 
-    //     return view('post', compact('people'));
-    // }
+        return view('post', compact('people'));
+    }
 }
