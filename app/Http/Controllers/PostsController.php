@@ -41,6 +41,9 @@ class PostsController extends Controller
        //returns submitted form data return $request->all();
 
        //persist data to database i.e send the submited data to the db
+      // Post::create($request->all());
+       $input = $request->all();
+       $input['title'] = $request->title;
        Post::create($request->all());
     }
 
