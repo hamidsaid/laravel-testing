@@ -6,7 +6,7 @@ use App\Models\Post;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Country;
-
+use Illuminate\Support\Carbon;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -182,8 +182,19 @@ Route::get("/contact/{mtandao}/{name}", "App\Http\Controllers\PostsController@my
 
 //group() makes validations easier, makes the error variable available to use
 Route::group(['middleware'=>'web'],function(){
-    
+
     Route::resource('/posts','App\Http\Controllers\PostsController');
 
 });
 
+
+Route::get('/dates',function(){
+    //diffForHumans human readable way
+    echo Carbon::now()->addDays(4)->diffForHumans();
+
+});
+
+
+Route::get('/latestPost', function(){
+    return Post::latest()->get();
+});
