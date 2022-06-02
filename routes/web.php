@@ -179,5 +179,11 @@ Route::get("/contact/{mtandao}/{name}", "App\Http\Controllers\PostsController@my
 | 
 */
 
-Route::resource('/posts','App\Http\Controllers\PostsController');
+
+//group() makes validations easier, makes the error variable available to use
+Route::group(['middleware'=>'web'],function(){
+    
+    Route::resource('/posts','App\Http\Controllers\PostsController');
+
+});
 

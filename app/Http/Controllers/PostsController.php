@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\CreatePostReq;
 use App\Models\Post;
 
 class PostsController extends Controller
@@ -36,9 +37,16 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostReq $request)
     {
-        //
+
+        //validations
+        //can also implemented in a custom Request file CreatePostReq
+        // $this->validate($request,[
+        //     'title'=>'required',
+        // ]);
+        
+        
        //returns submitted form data return $request->all();
 
        //persist data to database i.e send the submited data to the db
