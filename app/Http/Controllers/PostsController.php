@@ -45,7 +45,8 @@ class PostsController extends Controller
         // $this->validate($request,[
         //     'title'=>'required',
         // ]);
-        
+
+        //An alternative way
         
        //returns submitted form data return $request->all();
 
