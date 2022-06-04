@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+//custom class for request validations
 class CreatePostReq extends FormRequest
 {
     /**
